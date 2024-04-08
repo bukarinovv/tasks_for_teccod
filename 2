@@ -1,0 +1,14 @@
+def foo(minimum: int, maximum: int) -> list[int]:
+    def is_prime(digit):
+        for i in range(2, digit // 2 + 1):
+            if digit % i == 0:
+                return False
+        return True
+
+    return list(filter(lambda digit: is_prime(digit), range(minimum, maximum + 1)))
+
+mini = 2
+maxi = 15
+
+print(foo(2, 15))
+
