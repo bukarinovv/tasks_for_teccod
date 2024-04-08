@@ -1,0 +1,21 @@
+import time
+def foo(li: list[int]) -> list[int]:
+    return list(set(li))
+
+def func(li: list[int]) -> list[int]:
+    res = []
+    for elem in li:
+        if elem not in res:
+            res.append(elem)
+    return res
+
+
+q = [1, 2, 3, 4, 4, 5, 6, 9, 9, 8]
+
+start = time.perf_counter_ns()
+print(foo(q))
+print(f'Время работы функции foo: {time.perf_counter_ns() - start} наносекунд')
+
+start = time.perf_counter_ns()
+print(func(q))
+print(f'Время работы функции func: {time.perf_counter_ns() - start} наносекунд')
