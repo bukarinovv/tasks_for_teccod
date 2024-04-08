@@ -1,0 +1,4 @@
+def foo(li: list[str]) -> list[str]:
+    res = sorted(li, key=len)
+    res = sorted(li, key=len, reverse=True)
+    return res
