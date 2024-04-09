@@ -1,22 +1,25 @@
 from typing import Any
 
 class Point:
+    __slots__ = ('x', 'y')
+    
     def __init__(self, x, y) -> None:
         self.x = x
         self.y = y
-        self.distance = abs(self.x - self.y)
 
-    def __getattribute__(self, attr: str) -> None:
+    def __getattribute__(self, attr: str) -> Any:
         return object.__getattribute__(self, attr)
     
     def __setattr__(self, name: str, value: Any) -> None:
         object.__setattr__(self, name, value)
 
-    def distance(self):
-        return self.distance
+    def distance(self) -> int:
+        return abs(self.x - self.y)
     
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{__class__.__name__}({self.x}, {self.y})'
     
 
 point = Point(2, 5)
+print(point.distance())
+print(point)
